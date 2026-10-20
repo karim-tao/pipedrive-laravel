@@ -1,0 +1,75 @@
+{
+    "name": "karim-tao/pipedrive-laravel",
+    "description": "Laravel integration for the Pipedrive API. Config-driven credentials and Laravel's own HTTP client under the hood.",
+    "type": "library",
+    "keywords": [
+        "pipedrive",
+        "pipedrive-api",
+        "pipedrive-laravel",
+        "laravel"
+    ],
+    "homepage": "https://github.com/karim-tao/pipedrive-laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Karim Tao"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/karim-tao/pipedrive-laravel/issues",
+        "source": "https://github.com/karim-tao/pipedrive-laravel"
+    },
+    "require": {
+        "php": "^8.3",
+        "illuminate/http": "^12.0 || ^13.0",
+        "illuminate/support": "^12.0 || ^13.0",
+        "karim-tao/pipedrive-client": "^0.1"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pao": "^1.0",
+        "laravel/pint": "^1.29",
+        "orchestra/testbench": "^10.0",
+        "pestphp/pest": "^4.4",
+        "pestphp/pest-plugin-type-coverage": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pipedrive\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pipedrive\\Laravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pipedrive\\Laravel\\PipedriveServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "scripts": {
+        "lint": "pint",
+        "test:lint": "pint --test",
+        "test:static": "phpstan analyse",
+        "test:type-coverage": "pest --type-coverage --min=100",
+        "test:unit": "pest --parallel --coverage --min=100",
+        "test": [
+            "@test:lint",
+            "@test:static",
+            "@test:type-coverage",
+            "@test:unit"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
