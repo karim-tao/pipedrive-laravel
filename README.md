@@ -14,7 +14,7 @@ use Pipedrive\Laravel\Http\LaravelHttpClient;
 
 $pipedrive = PipedriveClient::factory()
     ->withClientCredentials(config('pipedrive.auth.client_id'), config('pipedrive.auth.client_secret'))
-    ->withToken($accessToken, $expiresAt, $refreshToken, $apiDomain)
+    ->withToken($accessToken, $expiresAt, $refreshToken, $baseUrl)
     ->withHttpClient(new LaravelHttpClient)
     ->make();
 
